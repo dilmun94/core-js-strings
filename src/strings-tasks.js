@@ -317,8 +317,13 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const a = /[aeiouyAEIOUY]/gi;
+  const b = str.match(a);
+  if (b) {
+    return b.length;
+  }
+  return 0;
 }
 
 /**
@@ -334,8 +339,10 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const a = str.toLowerCase().replace(/[^a-z0-9]/gi, '');
+  const b = a.split('').reverse().join('');
+  return a === b;
 }
 
 /**
@@ -350,8 +357,15 @@ function isPalindrome(/* str */) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const a = sentence.split(' ');
+  let b = '';
+  a.forEach((c) => {
+    if (c.length > b.length) {
+      b = c;
+    }
+  });
+  return b;
 }
 
 /**
@@ -364,8 +378,13 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const a = str.split(' ');
+  const b = [];
+  a.forEach((c) => {
+    b.push(c.split('').reverse().join(''));
+  });
+  return b.join(' ');
 }
 
 /**
@@ -379,8 +398,17 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  const a = str.split('');
+  const b = [];
+  a.forEach((c) => {
+    if (c === c.toUpperCase()) {
+      b.push(c.toLowerCase());
+    } else {
+      b.push(c.toUpperCase());
+    }
+  });
+  return b.join('');
 }
 
 /**
